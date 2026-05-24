@@ -16,14 +16,15 @@ type PuterChatMessage = {
   content: string;
 };
 
-const AI_RESPONSE_TIMEOUT_MS = 45000;
+const RESPONSE_TIMEOUT_MS = 45000;
 
-const WELCOME_MESSAGE = 'Assalamu\u2019alaikum, selamat datang di Hazana Corp. Ada yang bisa kami bantu?';
+const WELCOME_MESSAGE = 'Assalamu\u2019alaikum, selamat datang di Hazana Corp. Ada yang bisa kami bantu hari ini?';
 
-const LOGIN_NOTICE = 'Silahkan connect dengan Google Account Anda melalui popup Puter AI untuk melanjutkan chat dengan CS kami.';
+const SESSION_NOTICE =
+  'Untuk melanjutkan percakapan, Anda mungkin diminta membuka sesi aman terlebih dahulu. Ikuti instruksi yang muncul, lalu kami akan membantu Anda.';
 
 const ERROR_MESSAGE =
-  'Mohon maaf, CS Assistant sedang mengalami gangguan. Silakan coba beberapa saat lagi atau hubungi kami melalui Instagram.';
+  'Mohon maaf, layanan chat kami sedang mengalami kendala sementara. Silakan coba beberapa saat lagi atau hubungi Hazana Corp melalui Instagram.';
 
 const SYSTEM_PROMPT = `
 Anda adalah Hazana CS Assistant, customer service resmi Hazana Corp.
@@ -164,7 +165,7 @@ function extractPuterText(response: unknown): string {
 function withTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T> {
   return new Promise((resolve, reject) => {
     const timeoutId = window.setTimeout(() => {
-      reject(new Error('Puter AI request timed out.'));
+      reject(new Error('Chat request timed out.'));
     }, timeoutMs);
 
     promise
@@ -180,6 +181,8 @@ export default function CSChatWidget() {
   const [sdkFailed, setSdkFailed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [input, setInput] = useState('');
+  const [hasSuccessfulAssistantReply, setHasSuccessfulAssistantReply] = useState(false);
+  const [isNoticeDismissed, setIsNoticeDismissed] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>(() => [createMessage('assistant', WELCOME_MESSAGE)]);
 
   const messageEndRef = useRef<HTMLDivElement | null>(null);
@@ -255,13 +258,17 @@ export default function CSChatWidget() {
     ];
 
     try {
-      const response = await withTimeout(puter.ai.chat(chatHistory), AI_RESPONSE_TIMEOUT_MS);
+      const response = await withTimeout(puter.ai.chat(chatHistory), RESPONSE_TIMEOUT_MS);
 
       const botReply = extractPuterText(response) || ERROR_MESSAGE;
 
+      if (botReply && botReply !== ERROR_MESSAGE) {
+        setHasSuccessfulAssistantReply(true);
+      }
+
       setMessages((current) => [...current, createMessage('assistant', botReply)]);
     } catch (error) {
-      console.error('Puter AI chat error:', error);
+      console.error('Hazana CS chat error:', error);
 
       setMessages((current) => [...current, createMessage('assistant', ERROR_MESSAGE)]);
     } finally {
@@ -277,6 +284,7 @@ export default function CSChatWidget() {
   };
 
   const inputDisabled = !isSdkReady || sdkFailed || isLoading;
+  const shouldShowSessionNotice = !hasSuccessfulAssistantReply && !isNoticeDismissed;
 
   return (
     <div className="cs-chat-widget" aria-live="polite">
@@ -308,15 +316,20 @@ export default function CSChatWidget() {
               <span>Official support channel by Hazana Corp</span>
             </div>
 
-            <div className="cs-chat-notice cs-chat-notice-info">
-              <p>{LOGIN_NOTICE}</p>
-
-              {sdkFailed ? (
-                <span className="cs-chat-sdk-warning">
-                  Puter AI belum tersedia. Periksa koneksi internet Anda atau refresh halaman.
-                </span>
-              ) : null}
-            </div>
+            {shouldShowSessionNotice ? (
+              <div className="cs-chat-session-notice" role="status">
+                <ShieldCheck size={14} aria-hidden="true" />
+                <p>{SESSION_NOTICE}</p>
+                <button
+                  type="button"
+                  className="cs-chat-session-notice-close"
+                  aria-label="Tutup pemberitahuan"
+                  onClick={() => setIsNoticeDismissed(true)}
+                >
+                  <X size={13} aria-hidden="true" />
+                </button>
+              </div>
+            ) : null}
 
             <div className="cs-chat-messages">
               {messages.map((message) => (
@@ -344,7 +357,7 @@ export default function CSChatWidget() {
               value={input}
               onChange={(event) => setInput(event.target.value)}
               onKeyDown={handleInputKeyDown}
-              placeholder={sdkFailed ? 'Puter AI belum tersedia...' : 'Tulis pesan Anda...'}
+              placeholder={sdkFailed ? 'Layanan chat belum tersedia...' : 'Tulis pesan Anda...'}
               disabled={inputDisabled}
               rows={1}
               aria-label="Tulis pesan chat"
