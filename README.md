@@ -175,11 +175,12 @@ Script Puter SDK ditambahkan di `index.html`:
 
 Behavior:
 
-- Jika user belum connect ke Puter, input chat disabled.
-- Notice login menampilkan pesan:
-  `Silahkan connect dengan Google Account Anda untuk melanjutkan chat dengan CS kami.`
-- Tombol `Connect Google Account` memanggil `puter.auth.signIn()`.
-- Setelah login, pesan user dikirim ke `puter.ai.chat()`.
+- Website tidak memanggil auth manual seperti `puter.auth.signIn()`.
+- Notice menampilkan pesan:
+  `Silahkan connect dengan Google Account Anda melalui popup Puter AI untuk melanjutkan chat dengan CS kami.`
+- Input aktif selama Puter SDK tersedia.
+- Saat user pertama kali mengirim chat, pesan langsung dikirim ke `puter.ai.chat()`.
+- Jika Puter membutuhkan login, popup Puter AI akan muncul otomatis dari SDK.
 - AI menggunakan persona Hazana CS Assistant dengan context layanan, business units, dan informasi perusahaan.
 - Jika SDK/API gagal, widget menampilkan fallback error dan tidak membuat halaman crash.
 

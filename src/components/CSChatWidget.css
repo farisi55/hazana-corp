@@ -212,35 +212,6 @@
   line-height: 1.5;
 }
 
-.cs-chat-notice button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  min-height: 38px;
-  border: 0;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--hazana-chat-gold), #edcf68);
-  color: var(--hazana-chat-navy);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 900;
-  transition:
-    filter 160ms ease,
-    transform 160ms ease;
-}
-
-.cs-chat-notice button:hover:not(:disabled) {
-  filter: brightness(1.04);
-  transform: translateY(-1px);
-}
-
-.cs-chat-notice button:disabled {
-  cursor: not-allowed;
-  opacity: 0.68;
-}
-
 .cs-chat-sdk-warning {
   display: block;
   margin-top: 9px;
@@ -424,8 +395,7 @@
   }
 
   .cs-chat-launcher,
-  .cs-chat-input-area button,
-  .cs-chat-notice button {
+  .cs-chat-input-area button {
     transition: none !important;
   }
 }

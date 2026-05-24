@@ -11,10 +11,6 @@ type PuterAIChatMessage = {
 };
 
 type PuterGlobal = {
-  auth?: {
-    isSignedIn?: () => boolean;
-    signIn?: () => Promise<unknown>;
-  };
   ai?: {
     chat?: (message: string | PuterAIChatMessage[]) => Promise<unknown>;
   };
