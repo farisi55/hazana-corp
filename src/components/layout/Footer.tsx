@@ -1,6 +1,6 @@
 import { Globe2, ShieldCheck } from 'lucide-react';
 import logoImg from '../../assets/images/logo.png';
-import { businessUnits } from '../../data/businessUnits';
+import { businessUnits } from '../../data/business-units';
 
 const services = ['Pemasaran Digital', 'Konsultan IT', 'Training', 'Konsultan Bisnis'];
 

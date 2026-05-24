@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { businessUnits } from '../../data/businessUnits';
+import { businessUnits } from '../../data/business-units';
 import { cn } from '../../lib/cn';
 import { Badge } from '../ui/Badge';
 import { Card } from '../ui/Card';
