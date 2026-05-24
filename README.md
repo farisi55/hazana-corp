@@ -1,6 +1,6 @@
 # Hazana Corp Website
 
-Company profile website untuk Hazana Corp, sebuah halal-centric integrated business group berbasis di Bogor, Jawa Barat. Website ini dibangun sebagai single-page application statis yang siap dideploy ke Cloudflare Pages.
+Company profile website untuk Hazana Corp, sebuah halal-centric integrated business group berbasis di Bogor, Jawa Barat. Website ini dibangun sebagai single-page application statis yang siap dideploy ke Cloudflare Workers Static Assets.
 
 ## Tech Stack
 
@@ -10,7 +10,7 @@ Company profile website untuk Hazana Corp, sebuah halal-centric integrated busin
 - Tailwind CSS v3
 - Framer Motion
 - Lucide React
-- Cloudflare Pages / Wrangler
+- Cloudflare Workers Static Assets / Wrangler
 
 ## Fitur Utama
 
@@ -21,6 +21,7 @@ Company profile website untuk Hazana Corp, sebuah halal-centric integrated busin
 - Featured product section untuk Catat Emas
 - Services section dengan interactive mouse-tracking network diagram
 - Contact section dengan form `mailto:` dan Google Maps embed
+- Floating Customer Service Chat berbasis Puter AI
 - Favicon, web manifest, SEO meta tags, dan Open Graph metadata
 
 ## Struktur Project
@@ -116,7 +117,7 @@ Menjalankan preview server dari hasil build.
 npm run deploy
 ```
 
-Build project lalu deploy folder `dist` ke Cloudflare Pages dengan project name `hazana-corp`.
+Build project lalu deploy static assets ke Cloudflare Workers via Wrangler.
 
 ## Asset Brand
 
@@ -155,7 +156,36 @@ Services diagram:
 - Hover node menampilkan tooltip nama layanan
 - Disembunyikan pada mobile dengan `hidden lg:flex`
 
-## Deployment Cloudflare Pages
+## Customer Service Chat with Puter AI
+
+Website memiliki floating CS chat widget di pojok kanan bawah.
+
+File utama:
+
+```text
+src/components/CSChatWidget.tsx
+src/components/CSChatWidget.css
+```
+
+Script Puter SDK ditambahkan di `index.html`:
+
+```html
+<script src="https://js.puter.com/v2/" defer></script>
+```
+
+Behavior:
+
+- Jika user belum connect ke Puter, input chat disabled.
+- Notice login menampilkan pesan:
+  `Silahkan connect dengan Google Account Anda untuk melanjutkan chat dengan CS kami.`
+- Tombol `Connect Google Account` memanggil `puter.auth.signIn()`.
+- Setelah login, pesan user dikirim ke `puter.ai.chat()`.
+- AI menggunakan persona Hazana CS Assistant dengan context layanan, business units, dan informasi perusahaan.
+- Jika SDK/API gagal, widget menampilkan fallback error dan tidak membuat halaman crash.
+
+Tidak ada API key yang di-hardcode. Integrasi berjalan client-side melalui Puter SDK.
+
+## Deployment Cloudflare Workers Static Assets
 
 Konfigurasi Wrangler tersedia di:
 
@@ -178,14 +208,15 @@ dist
 Deploy manual via Wrangler:
 
 ```bash
-npm run deploy
+npm run build
+npx wrangler deploy
 ```
 
-Untuk Cloudflare Pages CI/CD:
+Untuk Cloudflare Workers deploy di dashboard:
 
-- Framework preset: Vite
 - Build command: `npm run build`
-- Output directory: `dist`
+- Deploy command: `npx wrangler deploy`
+- Static assets directory dikonfigurasi di `wrangler.toml`
 
 ## Checklist Sebelum Deploy
 

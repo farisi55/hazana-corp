@@ -1,5 +1,6 @@
 import { Footer } from './components/layout/Footer';
 import { Navbar } from './components/layout/Navbar';
+import CSChatWidget from './components/CSChatWidget';
 import { About } from './components/sections/About';
 import { BusinessUnits } from './components/sections/BusinessUnits';
 import { Contact } from './components/sections/Contact';
@@ -22,6 +23,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <CSChatWidget />
     </div>
   );
 }
