@@ -1,10 +1,79 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { businessUnits } from '../../data/business-units';
+import iconAgency from '../../assets/svg/icon-agency.svg';
+import iconFnb from '../../assets/svg/icon-fnb.svg';
+import iconIt from '../../assets/svg/icon-it.svg';
+import iconProperty from '../../assets/svg/icon-property.svg';
+import iconStore from '../../assets/svg/icon-store.svg';
+import iconTravel from '../../assets/svg/icon-travel.svg';
 import { cn } from '../../lib/cn';
 import { Badge } from '../ui/Badge';
 import { Card } from '../ui/Card';
 import { SectionTitle } from '../ui/SectionTitle';
+
+type BusinessUnit = {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string;
+  icon: string;
+  color: 'gold' | 'navy';
+  featured?: boolean;
+  comingSoon?: boolean;
+};
+
+const businessUnits: readonly BusinessUnit[] = [
+  {
+    id: 'hazza-store',
+    name: 'Hazza Store',
+    tagline: 'Online Retail & E-commerce',
+    description: 'Platform e-commerce halal dengan produk pilihan berkualitas untuk kebutuhan sehari-hari.',
+    icon: iconStore,
+    color: 'gold',
+  },
+  {
+    id: 'hazza-travel',
+    name: 'Hazza Travel',
+    tagline: 'Halal Tourism & Travel Packages',
+    description: 'Paket wisata halal yang dirancang untuk perjalanan bermakna sesuai nilai Islam.',
+    icon: iconTravel,
+    color: 'navy',
+  },
+  {
+    id: 'hazza-properti',
+    name: 'Hazza Properti',
+    tagline: 'Syariah Housing & Furniture',
+    description: 'Solusi properti syariah dan furnitur berkualitas untuk hunian idaman yang berkah.',
+    icon: iconProperty,
+    color: 'gold',
+  },
+  {
+    id: 'hazza-solusindo',
+    name: 'Hazza Solusindo',
+    tagline: 'IT & App Development Solutions',
+    description: 'Pengembangan aplikasi dan solusi IT inovatif untuk transformasi digital bisnis Anda.',
+    icon: iconIt,
+    color: 'navy',
+    featured: true,
+  },
+  {
+    id: 'hazza-agency',
+    name: 'Hazza Agency',
+    tagline: 'Digital Media & Social Content',
+    description: 'Strategi konten digital dan media sosial yang viral dan berdampak untuk brand Anda.',
+    icon: iconAgency,
+    color: 'gold',
+  },
+  {
+    id: 'hazza-fnb',
+    name: 'Hazza FNB',
+    tagline: 'Food & Beverage - Coming Soon',
+    description: 'Segera hadir: solusi kuliner halal dengan standar kualitas dan keberkahan.',
+    icon: iconFnb,
+    color: 'navy',
+    comingSoon: true,
+  },
+];
 
 export function BusinessUnits() {
   return (

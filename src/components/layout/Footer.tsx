@@ -1,8 +1,8 @@
 import { Globe2, ShieldCheck } from 'lucide-react';
 import logoImg from '../../assets/images/logo.png';
-import { businessUnits } from '../../data/business-units';
 
 const services = ['Pemasaran Digital', 'Konsultan IT', 'Training', 'Konsultan Bisnis'];
+const businessUnitNames = ['Hazza Store', 'Hazza Travel', 'Hazza Properti', 'Hazza Solusindo', 'Hazza Agency', 'Hazza FNB'];
 
 export function Footer() {
   return (
@@ -35,10 +35,10 @@ export function Footer() {
         <div>
           <h3 className="text-sm font-bold uppercase tracking-wide text-brand-gold">Unit Bisnis</h3>
           <ul className="mt-4 space-y-3 text-sm text-white/70">
-            {businessUnits.slice(0, 6).map((unit) => (
-              <li key={unit.id}>
+            {businessUnitNames.map((unitName) => (
+              <li key={unitName}>
                 <a className="transition hover:text-brand-gold" href="#unit-bisnis">
-                  {unit.name}
+                  {unitName}
                 </a>
               </li>
             ))}
