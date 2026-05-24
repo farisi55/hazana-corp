@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Pola geometris Islami Hazana">
+  <g fill="none" stroke="#C9A227" stroke-width="1.2" opacity="0.08" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 2 62 26 88 14 74 38 98 50 74 62 88 86 62 74 50 98 38 74 12 86 26 62 2 50 26 38 12 14 38 26 50 2Z"/>
+    <path d="M50 18 58 36 76 42 62 56 64 76 50 66 36 76 38 56 24 42 42 36 50 18Z"/>
+    <path d="M0 0h100v100H0z"/>
+    <path d="M0 50h100M50 0v100M0 0l100 100M100 0 0 100"/>
+    <path d="M50 2C35 24 24 35 2 50c22 15 33 26 48 48 15-22 26-33 48-48C76 35 65 24 50 2Z"/>
+    <path d="M0 25c14 2 23 11 25 25C23 64 14 73 0 75M100 25c-14 2-23 11-25 25 2 14 11 23 25 25M25 0c2 14 11 23 25 25C64 23 73 14 75 0M25 100c2-14 11-23 25-25 14 2 23 11 25 25"/>
+  </g>
+</svg>

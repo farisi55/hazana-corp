@@ -1,0 +1,76 @@
+<svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg" width="440" height="440">
+  <defs>
+    <!-- Radial glow for globe -->
+    <radialGradient id="globeGlow" cx="52%" cy="48%" r="50%">
+      <stop offset="0%"   stop-color="#2A5298" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1B3A6B" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Globe fill -->
+    <radialGradient id="globeFill" cx="40%" cy="35%" r="65%">
+      <stop offset="0%"   stop-color="#EEF2FA"/>
+      <stop offset="100%" stop-color="#D8E2F3"/>
+    </radialGradient>
+    <!-- Clip circle for globe interior lines -->
+    <clipPath id="globeClip">
+      <circle cx="240" cy="210" r="134"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── Outer ambient glow ring ───────────────────────────────── -->
+  <circle cx="240" cy="210" r="195" fill="none" stroke="#C9A227" stroke-width="1" stroke-opacity="0.15"/>
+  <circle cx="240" cy="210" r="178" fill="none" stroke="#C9A227" stroke-width="1" stroke-opacity="0.10"/>
+
+  <!-- ── Globe base circle ─────────────────────────────────────── -->
+  <circle cx="240" cy="210" r="134" fill="url(#globeFill)" stroke="#1B3A6B" stroke-width="3.5"/>
+
+  <!-- ── Globe grid lines (clipped inside circle) ─────────────── -->
+  <g clip-path="url(#globeClip)" stroke="#1B3A6B" stroke-opacity="0.35" fill="none">
+    <!-- Equator -->
+    <line x1="106" y1="210" x2="374" y2="210" stroke-width="1.5"/>
+    <!-- Two latitude lines -->
+    <line x1="118" y1="152" x2="362" y2="152" stroke-width="1"/>
+    <line x1="118" y1="268" x2="362" y2="268" stroke-width="1"/>
+
+    <!-- Central meridian -->
+    <ellipse cx="240" cy="210" rx="1" ry="134" stroke-width="1.5"/>
+    <!-- Longitude curves — left half -->
+    <path d="M 240 76 Q 176 100 168 210 Q 176 320 240 344" stroke-width="1"/>
+    <path d="M 240 76 Q 204 100 200 210 Q 204 320 240 344" stroke-width="1"/>
+    <!-- Longitude curves — right half -->
+    <path d="M 240 76 Q 304 100 312 210 Q 304 320 240 344" stroke-width="1"/>
+    <path d="M 240 76 Q 276 100 280 210 Q 276 320 240 344" stroke-width="1"/>
+  </g>
+
+  <!-- ── Globe outer ring stroke (on top of fill) ──────────────── -->
+  <circle cx="240" cy="210" r="134" fill="none" stroke="#1B3A6B" stroke-width="3.5"/>
+
+  <!-- ── Crescent moon — gold, left-wrapping ───────────────────── -->
+  <!-- Large gold arc sweeping from top-left to bottom-left -->
+  <path
+    d="M 140 94
+       A 160 160 0 0 0 140 326"
+    stroke="#C9A227"
+    stroke-width="22"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- ── Gold accent decorative dashes ─────────────────────────── -->
+  <!-- Top-right -->
+  <line x1="342" y1="68"  x2="368" y2="52"  stroke="#C9A227" stroke-width="3" stroke-linecap="round"/>
+  <line x1="360" y1="92"  x2="390" y2="84"  stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+  <!-- Bottom-right -->
+  <line x1="342" y1="352" x2="368" y2="368" stroke="#C9A227" stroke-width="3" stroke-linecap="round"/>
+  <line x1="362" y1="328" x2="392" y2="336" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+  <!-- Left -->
+  <line x1="62"  y1="188" x2="34"  y2="188" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+  <line x1="64"  y1="210" x2="32"  y2="210" stroke="#C9A227" stroke-width="3" stroke-linecap="round"/>
+  <line x1="62"  y1="232" x2="34"  y2="232" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- ── Small gold dot — orbit marker ─────────────────────────── -->
+  <circle cx="375" cy="210" r="6" fill="#C9A227"/>
+  <circle cx="375" cy="210" r="10" fill="none" stroke="#C9A227" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <!-- ── Top-right triangle accent ─────────────────────────────── -->
+  <polygon points="330,80 342,68 342,80" fill="#C9A227" opacity="0.8"/>
+</svg>

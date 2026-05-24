@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Ilustrasi globe halal dengan bulan sabit">
+  <rect width="400" height="400" rx="32" fill="#F8F7F2"/>
+  <circle cx="200" cy="200" r="134" fill="#FFFFFF" stroke="#1B3A6B" stroke-width="6"/>
+  <path d="M72 200h256M200 66v268M105 123c24 18 55 27 95 27s71-9 95-27M105 277c24-18 55-27 95-27s71 9 95 27" fill="none" stroke="#1B3A6B" stroke-width="4" opacity="0.45" stroke-linecap="round"/>
+  <path d="M200 66c38 34 56 79 56 134s-18 100-56 134M200 66c-38 34-56 79-56 134s18 100 56 134" fill="none" stroke="#1B3A6B" stroke-width="4" opacity="0.55" stroke-linecap="round"/>
+  <path d="M296 86c-54 17-93 68-93 128 0 65 46 119 108 132-25 20-56 31-90 31-81 0-147-66-147-147S140 83 221 83c27 0 52 7 75 20V86Z" fill="#C9A227"/>
+  <path d="M298 124c-35 18-59 55-59 97 0 39 21 74 53 93-54-6-96-52-96-108 0-52 37-95 86-106 6-1 11 9 16 24Z" fill="#F8F7F2"/>
+  <circle cx="312" cy="122" r="10" fill="#C9A227"/>
+  <path d="M77 311 50 338M323 64l27-27M318 336l36 20M64 73 38 49" fill="none" stroke="#C9A227" stroke-width="6" stroke-linecap="round"/>
+  <path d="M62 200h-26M364 200h-26" fill="none" stroke="#1B3A6B" stroke-width="5" stroke-linecap="round" opacity="0.35"/>
+</svg>

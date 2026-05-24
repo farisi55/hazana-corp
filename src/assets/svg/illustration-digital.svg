@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Ilustrasi jaringan digital">
+  <rect width="300" height="300" rx="28" fill="#FFFFFF"/>
+  <path d="M68 86 145 55l84 49-23 92-92 48-60-71 14-87Z" fill="#FDF6DC" stroke="#C9A227" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M68 86 150 151l79-47M150 151l-36 93M150 151l56 45M150 151l-96 22M145 55l5 96" fill="none" stroke="#1B3A6B" stroke-width="3" stroke-linecap="round" opacity="0.68"/>
+  <circle cx="68" cy="86" r="12" fill="#1B3A6B"/>
+  <circle cx="145" cy="55" r="10" fill="#C9A227"/>
+  <circle cx="229" cy="104" r="12" fill="#1B3A6B"/>
+  <circle cx="206" cy="196" r="10" fill="#C9A227"/>
+  <circle cx="114" cy="244" r="12" fill="#1B3A6B"/>
+  <circle cx="54" cy="173" r="10" fill="#C9A227"/>
+  <circle cx="150" cy="151" r="17" fill="#FFFFFF" stroke="#1B3A6B" stroke-width="4"/>
+  <path d="M137 150h26M150 137v26" fill="none" stroke="#C9A227" stroke-width="4" stroke-linecap="round"/>
+  <path d="M245 226h21M34 54h26M220 45l18-18M45 240l-18 18" fill="none" stroke="#C9A227" stroke-width="5" stroke-linecap="round" opacity="0.65"/>
+</svg>

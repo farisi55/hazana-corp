@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Ikon Hazza Solusindo">
+  <rect x="6" y="9" width="36" height="27" rx="4" fill="#FFFFFF" stroke="#1B3A6B" stroke-width="2.4"/>
+  <path d="m19 17-6 6 6 6M29 17l6 6-6 6M26 15l-4 16" fill="none" stroke="#1B3A6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 40h24M24 36v4M38 18h3.5M38 27h3.5M6.5 18H10M6.5 27H10" fill="none" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="42.5" cy="18" r="1.8" fill="#C9A227"/>
+  <circle cx="42.5" cy="27" r="1.8" fill="#C9A227"/>
+  <circle cx="5.5" cy="18" r="1.8" fill="#C9A227"/>
+  <circle cx="5.5" cy="27" r="1.8" fill="#C9A227"/>
+</svg>
