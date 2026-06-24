@@ -250,43 +250,22 @@ function SmoothSlide() {
           nyata.
         </p>
 
-        <div className="mb-5 grid grid-cols-2 gap-2">
-          {smoothCapabilities.map(({ icon: Icon, label }) => (
-            <div
-              key={label}
-              className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.05] px-3 py-2 text-xs"
-            >
-              <Icon className="h-4 w-4 flex-shrink-0 text-brand-gold" aria-hidden="true" />
-              <span className="font-medium text-white/70">{label}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="mb-6 flex flex-wrap gap-1.5">
-          {smoothTechStack.map((tech) => (
-            <span
-              key={tech}
-              className="rounded border border-brand-gold/20 px-2 py-0.5 font-mono text-[10px] text-brand-gold/60"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a
             href="https://smooth-ai.farisi55.workers.dev/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-gold px-6 py-2.5 text-sm font-semibold text-brand-navy transition-all duration-200 hover:bg-brand-gold-light"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-gold px-6 py-2.5 text-sm font-semibold text-brand-navy transition-all duration-200 hover:bg-brand-gold-light hover:-translate-y-0.5"
           >
             <ExternalLink className="h-4 w-4" aria-hidden="true" />
-            Lihat Platform
+            Buka Homepage smooth
           </a>
           <span className="w-fit rounded-xl border border-white/20 px-3 py-2.5 font-mono text-xs text-white/30">
             Self-Hosted
           </span>
         </div>
+
+        
       </div>
 
       <div className="hidden items-stretch justify-center p-6 lg:flex">
@@ -294,7 +273,7 @@ function SmoothSlide() {
           <img
             src={smoothHeroImg}
             alt="smooth AI agent platform"
-            className="h-full w-full object-contain object-center"
+            className="w-auto max-w-full max-h-[420px] object-contain drop-shadow-2xl"
             loading="lazy"
           />
         </div>
